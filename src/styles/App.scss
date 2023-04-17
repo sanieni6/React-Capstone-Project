@@ -1,0 +1,158 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #0fff;
+}
+
+.header-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.seasons-btn {
+  border: none;
+  background-color: #0fff;
+  color: none;
+}
+
+.gear-btn {
+  color: black;
+  width: 20px;
+  height: 20px;
+}
+
+.seasons-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: rgb(190, 175, 120);
+  position: fixed;
+  top: 57px; /* Ajusta el valor de 'top' según la altura de tu header */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.balloon {
+  width: 30px;
+  height: 30px;
+  color: #000;
+}
+
+.leagues {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 3px;
+}
+
+.league {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.league-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.league-name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+}
+
+.back {
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
+.standings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 15px;
+}
+
+.stand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.stand-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.second-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  margin: 0;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.points {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.wins {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.losses {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
