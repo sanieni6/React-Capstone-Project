@@ -1,12 +1,20 @@
 import React from 'react';
+import {
+  Routes, Route,
+} from 'react-router-dom';
+import Header from './Header';
 import '../styles/App.css';
+import Leagues from './Leagues';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>React Capstone Project</h1>
-      </header>
+      <Header />
+      <div>
+        <Routes>
+          <Route path="/" element={<Leagues />} />
+        </Routes>
+      </div>
     </div>
   );
 }
