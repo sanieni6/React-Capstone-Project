@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -25,16 +26,17 @@ const LeaguesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getLeagues.pending, (state) => ({
-        ...state,
-      }))
-      .addCase(getLeagues.fulfilled, (state, action) => ({
-        ...state,
-        leagues: action.payload,
-      }))
-      .addCase(getLeagues.rejected, (state) => ({
-        ...state,
-      }));
+      .addCase(getLeagues.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getLeagues.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.leagues = action.payload;
+      })
+      .addCase(getLeagues.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload.response.data.data;
+      });
   },
 });
 
