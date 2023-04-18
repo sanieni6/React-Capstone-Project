@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -29,28 +28,45 @@ const standingsSlice = createSlice({
   initialState,
   reducers: {
     setSeasonId: (state, action) => {
-      state.seasonId = action.payload;
+      const newState = { ...state };
+      newState.seasonId = action.payload;
+      return newState;
     },
     setLeagueId: (state, action) => {
-      state.leagueId = action.payload;
+      const newState = { ...state };
+      newState.leagueId = action.payload;
+      return newState;
+    },
+    clear: (state) => {
+      const newState = { ...state };
+      newState.standings = [];
+      newState.isLoading = false;
+      newState.error = undefined;
+      return newState;
     },
 
   },
   extraReducers: (builder) => {
     builder
       .addCase(getStandings.pending, (state) => {
-        state.isLoading = true;
+        const newState = { ...state };
+        newState.isLoading = true;
+        return newState;
       })
       .addCase(getStandings.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.standings = action.payload;
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.standings = action.payload;
+        return newState;
       })
       .addCase(getStandings.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload.response.data.data;
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.error = action.payload.response.data.data;
+        return newState;
       });
   },
 });
 
-export const { setSeasonId, setLeagueId } = standingsSlice.actions;
+export const { setSeasonId, setLeagueId, clear } = standingsSlice.actions;
 export default standingsSlice.reducer;

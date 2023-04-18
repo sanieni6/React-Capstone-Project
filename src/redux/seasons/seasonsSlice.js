@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -27,15 +26,21 @@ const seasonsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getSeasons.pending, (state) => {
-        state.isLoading = true;
+        const newState = { ...state };
+        newState.isLoading = true;
+        return newState;
       })
       .addCase(getSeasons.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.seasons = action.payload;
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.seasons = action.payload;
+        return newState;
       })
       .addCase(getSeasons.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload.response.data.data;
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.error = action.payload.response.data.data;
+        return newState;
       });
   },
 });
