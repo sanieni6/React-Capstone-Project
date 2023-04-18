@@ -1,5 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@font-face {
+  font-family: "Gill Sans";
+  src: url("../fonts/Gill Sans.otf");
+}
+
 .App {
   text-align: center;
+}
+
+body.menu-open {
+  overflow: hidden;
 }
 
 .App-header {
@@ -17,11 +28,11 @@
   padding: 0 10px;
   justify-content: space-between;
   align-items: center;
-  background-color: #0fff;
+  background-color: #4369b2;
 }
 
 .header-title {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gill Sans", sans-serif;
   font-size: 20px;
   display: flex;
   align-items: center;
@@ -29,8 +40,33 @@
 
 .seasons-btn {
   border: none;
-  background-color: #0fff;
-  color: none;
+  background-color: #35548b;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.seasons-menu-container {
+  background-color: #35548b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.seasonid {
+  font-family: "Gill Sans", sans-serif;
+  margin-left: 3px;
+  color: #fff;
+}
+
+.tags-btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: "Gill Sans", sans-serif;
+  width: 100%;
+  font-size: 14px;
 }
 
 .gear-btn {
@@ -43,9 +79,10 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: rgb(190, 175, 120);
+  background-color: #4369b2;
+  color: #fff;
   position: fixed;
-  top: 57px; /* Ajusta el valor de 'top' según la altura de tu header */
+  top: 57px;
   left: 0;
   right: 0;
   bottom: 0;
@@ -59,6 +96,19 @@
   width: 30px;
   height: 30px;
   color: #000;
+}
+
+.main-image {
+  width: 100%;
+  height: 30%;
+}
+
+.text-divider {
+  background-color: #35548b;
+  margin: 0;
+  padding: 5px;
+  text-align: start;
+  color: #fff;
 }
 
 .leagues {
@@ -77,14 +127,22 @@
   align-items: center;
 }
 
+.league-btn {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 .league-logo {
   width: 70px;
   height: 70px;
 }
 
 .league-name {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gill Sans", sans-serif;
   font-weight: bold;
+  font-size: 15px;
 }
 
 .back-button {
@@ -107,32 +165,37 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0;
   padding: 0;
-  gap: 15px;
+  margin: 0;
 }
 
 .stand {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .stand-logo {
+  display: flex;
   width: 70px;
   height: 70px;
+  margin-left: 10px;
 }
 
 .second-container {
   display: flex;
   flex-direction: column;
+  margin-right: 10px;
+  margin-top: 7px;
 }
 
 .name {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Gill Sans", sans-serif;
   font-size: 20px;
   margin: 0;
+  color: #fff;
 }
 
 .stats {
@@ -143,16 +206,32 @@
 }
 
 .points {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
+  color: #fff;
 }
 
 .wins {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
+  color: #fff;
 }
 
 .losses {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Lato", sans-serif;
   font-size: 16px;
+  color: #fff;
+}
+
+.loading {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 30px;
+}
+
+.standings li:nth-child(even) {
+  background-color: #4268af;
+}
+
+.standings li:nth-child(odd) {
+  background-color: #3c72d5;
 }
