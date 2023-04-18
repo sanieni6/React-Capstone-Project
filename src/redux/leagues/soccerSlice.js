@@ -25,16 +25,23 @@ const LeaguesSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getLeagues.pending, (state) => ({
-        ...state,
-      }))
-      .addCase(getLeagues.fulfilled, (state, action) => ({
-        ...state,
-        leagues: action.payload,
-      }))
-      .addCase(getLeagues.rejected, (state) => ({
-        ...state,
-      }));
+      .addCase(getLeagues.pending, (state) => {
+        const newState = { ...state };
+        newState.isLoading = true;
+        return newState;
+      })
+      .addCase(getLeagues.fulfilled, (state, action) => {
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.leagues = action.payload;
+        return newState;
+      })
+      .addCase(getLeagues.rejected, (state, action) => {
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.error = action.payload.response.data.data;
+        return newState;
+      });
   },
 });
 

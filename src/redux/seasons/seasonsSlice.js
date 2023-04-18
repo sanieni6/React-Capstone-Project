@@ -14,7 +14,7 @@ export const getSeasons = createAsyncThunk('seasons/getSeasons',
     try {
       const response = await axios(url);
       const { data } = response;
-      return data.data;
+      return data.data.seasons;
     } catch (error) {
       return thunkAPI.rejectWithValue('something went wrong');
     }
@@ -25,16 +25,23 @@ const seasonsSlice = createSlice({
   initialState,
   extraReducers: (builder) => {
     builder
-      .addCase(getSeasons.pending, (state) => ({
-        ...state,
-      }))
-      .addCase(getSeasons.fulfilled, (state, action) => ({
-        ...state,
-        seasons: action.payload,
-      }))
-      .addCase(getSeasons.rejected, (state) => ({
-        ...state,
-      }));
+      .addCase(getSeasons.pending, (state) => {
+        const newState = { ...state };
+        newState.isLoading = true;
+        return newState;
+      })
+      .addCase(getSeasons.fulfilled, (state, action) => {
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.seasons = action.payload;
+        return newState;
+      })
+      .addCase(getSeasons.rejected, (state, action) => {
+        const newState = { ...state };
+        newState.isLoading = false;
+        newState.error = action.payload.response.data.data;
+        return newState;
+      });
   },
 });
 
