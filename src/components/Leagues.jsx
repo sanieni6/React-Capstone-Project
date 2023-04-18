@@ -1,17 +1,18 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getLeagues } from '../redux/leagues/soccerSlice';
-import { setLeagueId } from '../redux/standings/standingsSlice';
+import { setLeagueId, clear } from '../redux/standings/standingsSlice';
 import Header from './Header';
+import main from '../images/leagues.png';
 
 const Leagues = () => {
-  const { leagues } = useSelector((store) => store.leagues);
+  const { leagues, isLoadind, error } = useSelector((store) => store.leagues);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   useEffect(() => {
     dispatch(getLeagues());
+    dispatch(clear());
   }, [dispatch]);
 
   const handleClick = (id) => {
@@ -22,16 +23,27 @@ const Leagues = () => {
     <>
       <Header />
       <div>
-        <ul className="leagues">
-          {leagues.map((league) => (
-            // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
-            <li className="league" onClick={() => handleClick(league.id)} key={league.id}>
-              <img className="league-logo" src={league.logos.light} alt={league.name} />
-              <p className="league-name">{league.name}</p>
-            </li>
-          ))}
+        <img className="main-image" src={main} alt="leagues" />
+        <p className="text-divider">Most important leagues on the world</p>
+        {isLoadind && <p className="loading">Loading...</p>}
+        {error && <p className="loading">{error}</p>}
+        {leagues.length > 0 && (
+          <ul className="leagues">
+            {leagues.map((league) => (
+              <li key={league.id} className="league">
+                <button className="league-btn" onClick={() => handleClick(league.id)} key={league.id} type="button">
+                  <img className="league-logo" src={league.logos.light} alt={league.name} />
+                  <p className="league-name">{league.name}</p>
 
-        </ul>
+                </button>
+
+              </li>
+            ))}
+
+          </ul>
+
+        )}
+
       </div>
 
     </>
