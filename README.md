@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/sanieni6-blue)
 
-# LeaguesInf (React Group Project)
+# LeaguesInfo (React/Redux Project)
 <div align="center">
  <a href="https://imgbox.com/ftUpMLFI" target="_blank"><img  <a src="https://images2.imgbox.com/82/e7/EgdHiOYy_o.png" " alt="space logo"/ width="200"  height="auto"></a>
   <br/>
