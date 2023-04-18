@@ -78,7 +78,8 @@ The LeagueInfo application allows users to:
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 ### Live Demo Link <a name="live-demo-link"></a>
-> [Live Demo Link]()
+> [Live Demo Link](https://leaguesinfo.onrender.com/) <br>
+> [Video Demo](https://www.loom.com/share/8aaea0197571498494829a05e0f65148)
 
 
 ## 📸 Screenshots <a name="screenshots"></a>
