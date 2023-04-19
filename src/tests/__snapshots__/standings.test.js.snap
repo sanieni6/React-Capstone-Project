@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team component renders team name and stats correctly 1`] = `
+<div>
+  <li
+    class="stand"
+  >
+    <div
+      class="second-container"
+    >
+      <p
+        class="name"
+      >
+        Barcelona
+      </p>
+      <div
+        class="stats"
+      >
+        <p
+          class="points"
+        >
+          Points:
+          5
+        </p>
+        <p
+          class="wins"
+        >
+          Wins:
+          20
+        </p>
+        <p
+          class="losses"
+        >
+          Losses:
+          10
+        </p>
+      </div>
+    </div>
+  </li>
+</div>
+`;

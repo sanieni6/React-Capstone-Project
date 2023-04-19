@@ -1,0 +1,237 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+@font-face {
+  font-family: "Gill Sans";
+  src: url("../fonts/Gill Sans.otf");
+}
+
+.App {
+  text-align: center;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4369b2;
+}
+
+.header-title {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.seasons-btn {
+  border: none;
+  background-color: #35548b;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.seasons-menu-container {
+  background-color: #35548b;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.seasonid {
+  font-family: "Gill Sans", sans-serif;
+  margin-left: 3px;
+  color: #fff;
+}
+
+.tags-btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-family: "Gill Sans", sans-serif;
+  width: 100%;
+  font-size: 14px;
+}
+
+.gear-btn {
+  color: black;
+  width: 20px;
+  height: 20px;
+}
+
+.seasons-menu {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #4369b2;
+  color: #fff;
+  position: fixed;
+  top: 57px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.balloon {
+  width: 30px;
+  height: 30px;
+  color: #000;
+}
+
+.main-image {
+  width: 100%;
+  height: 30%;
+}
+
+.text-divider {
+  background-color: #35548b;
+  margin: 0;
+  padding: 5px;
+  text-align: start;
+  color: #fff;
+}
+
+.leagues {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+  gap: 3px;
+}
+
+.league {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.league-btn {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.league-logo {
+  width: 70px;
+  height: 70px;
+}
+
+.league-name {
+  font-family: "Gill Sans", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.back-button {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
+  width: 56px;
+  height: 56px;
+  align-items: center;
+}
+
+.back {
+  width: 40px;
+  height: 40px;
+  color: #000;
+}
+
+.standings {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.stand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.stand-logo {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  margin-left: 10px;
+}
+
+.second-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
+  margin-top: 7px;
+}
+
+.name {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 20px;
+  margin: 0;
+  color: #fff;
+}
+
+.stats {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
+}
+
+.points {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.wins {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.losses {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  color: #fff;
+}
+
+.loading {
+  font-family: "Gill Sans", sans-serif;
+  font-size: 30px;
+}
+
+.standings li:nth-child(even) {
+  background-color: #4268af;
+}
+
+.standings li:nth-child(odd) {
+  background-color: #3c72d5;
+}

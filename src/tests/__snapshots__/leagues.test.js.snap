@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`League component renders correctly 1`] = `
+<div>
+  <li
+    class="league"
+  >
+    <button
+      class="league-btn"
+      type="button"
+    >
+      <img
+        alt="Premier League"
+        class="league-logo"
+        src="https://example.com/premier-league-light.png"
+      />
+      <p
+        class="league-name"
+      >
+        Premier League
+      </p>
+    </button>
+  </li>
+</div>
+`;
