@@ -1,13 +1,48 @@
-import getLeagues from './__mocks__/getLeagues';
+import React from 'react';
+import { render } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import League from '../components/League';
 
-describe('Tests for the leagues', () => {
-  test('Get data from the API', () => {
-    expect(getLeagues()).toBeDefined();
+describe('League component', () => {
+  const leagueData = {
+    id: 1,
+    name: 'Premier League',
+    logos: {
+      light: 'https://example.com/premier-league-light.png',
+      dark: 'https://example.com/premier-league-dark.png',
+    },
+    handleClick: jest.fn(),
+  };
+
+  test('renders correctly', () => {
+    const { container } = render(<League
+      id={leagueData.id}
+      logos={leagueData.logos}
+      name={leagueData.name}
+      handleClick={leagueData.handleClick}
+    />);
+    expect(container).toMatchSnapshot();
   });
-  test('First League name must be English Premier League', () => {
-    expect(getLeagues()[0].name).toBe('English Premier League');
+
+  test('handles click event', () => {
+    const { getByRole } = render(<League
+      id={leagueData.id}
+      logos={leagueData.logos}
+      name={leagueData.name}
+      handleClick={leagueData.handleClick}
+    />);
+    getByRole('button').click();
+    expect(leagueData.handleClick).toHaveBeenCalledWith(1);
   });
-  test('Spanish League must be available on 2022', () => {
-    expect(getLeagues()[1].seasonsAvailable[0]).toBe(2022);
+
+  test('displays league name and logo', () => {
+    const { getByText, getByAltText } = render(<League
+      id={leagueData.id}
+      logos={leagueData.logos}
+      name={leagueData.name}
+      handleClick={leagueData.handleClick}
+    />);
+    expect(getByText('Premier League')).toBeInTheDocument();
+    expect(getByAltText('Premier League')).toHaveAttribute('src', 'https://example.com/premier-league-light.png');
   });
 });

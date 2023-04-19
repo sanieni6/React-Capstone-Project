@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeaderList component renders correctly 1`] = `
+<div>
+  <li>
+    <button
+      class="tags-btn"
+      type="button"
+    >
+      2021
+    </button>
+  </li>
+</div>
+`;

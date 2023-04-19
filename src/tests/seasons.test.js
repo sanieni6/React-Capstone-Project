@@ -1,13 +1,40 @@
-import getSeasons from './__mocks__/getSeasons';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom/extend-expect';
+import { BrowserRouter as Router } from 'react-router-dom';
+import HeaderList from '../components/HeaderList';
 
-describe('Tests for the seasons', () => {
-  test('Get data from the API', () => {
-    expect(getSeasons()).toBeDefined();
+describe('HeaderList component', () => {
+  test('renders correctly', () => {
+    const handleClick = jest.fn();
+    const { container } = render(
+      <Router>
+        <HeaderList year={2021} handleClick={handleClick} />
+      </Router>,
+    );
+    expect(container).toMatchSnapshot();
   });
-  test('Second season name must be 2021', () => {
-    expect(getSeasons()[1].season).toBe(2021);
+
+  test('clicking a year button calls the handleClick function', () => {
+    const handleClick = jest.fn();
+    const { getByText } = render(
+      <Router>
+        <HeaderList year={2021} handleClick={handleClick} />
+      </Router>,
+    );
+    const button = getByText('2021');
+    fireEvent.click(button);
+    expect(handleClick).toHaveBeenCalledTimes(1);
+    expect(handleClick).toHaveBeenCalledWith(2021);
   });
-  test('Italian League must be available in 2019', () => {
-    expect(getSeasons()[3].leaguesAvailable[2]).toBe('ita.1');
+
+  test('displays the correct year', () => {
+    const handleClick = jest.fn();
+    const { getByText } = render(
+      <Router>
+        <HeaderList year={2021} handleClick={handleClick} />
+      </Router>,
+    );
+    expect(getByText('2021')).toBeInTheDocument();
   });
 });
