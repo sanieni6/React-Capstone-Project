@@ -25,7 +25,11 @@ describe('Team component', () => {
   });
 
   test('renders team logo', () => {
-    const { getByAltText } = render(<Team team={teamData} stats={statsData} getLogo={(team) => <img src={team.crestUrl} alt={team.name} />} />);
+    const { getByAltText } = render(<Team
+      team={teamData}
+      stats={statsData}
+      getLogo={(team) => <img src={team.crestUrl} alt={team.name} />}
+    />);
     expect(getByAltText('Barcelona')).toHaveAttribute('src', 'https://example.com/barcelona-crest.png');
   });
 
